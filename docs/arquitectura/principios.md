@@ -1,3 +1,34 @@
+# Principios de Diseño
+
+## 5.1 Loose Coupling
+
+Los componentes interactúan a través de interfaces bien definidas,
+minimizando dependencias directas.
+
+## 5.2 High Cohesion
+
+Cada servicio tiene una responsabilidad clara y bien definida dentro de
+su dominio.
+
+## 5.3 Single Responsibility
+
+Cada componente se enfoca en una funcionalidad específica, facilitando
+mantenimiento y evolución.
+
+## 5.4 Open/Closed Principle
+
+La arquitectura está abierta para extensión pero cerrada para
+modificación, permitiendo añadir nuevas funcionalidades sin afectar
+componentes existentes.
+
+## 5.5 Dependency Inversion
+
+Los módulos de alto nivel no dependen de módulos de bajo nivel, ambos
+dependen de abstracciones.
+
+
+
+
 # Principios de Arquitectura
 
 Los principios de arquitectura son las reglas fundamentales que guían todas las decisiones de diseño en la organización. Son la base sobre la que se evalúan los patrones y las decisiones técnicas.
