@@ -1,3 +1,41 @@
+# Patrones Arquitectónicos Implementados
+
+## 4.1 API Gateway Pattern
+
+Implementado através de Kong, proporcionando un punto de entrada único
+que simplifica la gestión de APIs y mejora la seguridad.
+
+## 4.2 Microservices Pattern
+
+Servicios independientes que pueden desarrollarse, desplegarse y
+escalarse de forma autónoma.
+
+## 4.3 Event-Driven Architecture
+
+Comunicación asíncrona a través de eventos que mejora el desacoplamiento
+y la escalabilidad.
+
+## 4.4 CQRS (Command Query Responsibility Segregation)
+
+Separación de operaciones de lectura y escritura para optimizar
+performance y escalabilidad.
+
+## 4.5 Saga Pattern
+
+Gestión de transacciones distribuidas a través de múltiples servicios.
+
+## 4.6 Circuit Breaker Pattern
+
+Protección contra fallos en cascada mediante aislamiento de servicios
+defectuosos.
+
+
+
+
+
+
+
+
 # Patrones de Arquitectura
 
 Catálogo de patrones aprobados, patrones condicionales y patrones a evitar. Cada equipo debe justificar el uso de un patrón condicional mediante un ADR.
