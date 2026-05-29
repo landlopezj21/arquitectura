@@ -1,0 +1,41 @@
+site_name: Estándares de Arquitectura
+  Estándares oficiales de arquitectura, desarrollo, seguridad y operaciones.
+
+docs_dir: docs
+
+theme:
+  name: documentation
+
+plugins:
+  - techdocs-core
+
+nav:
+  - Inicio: index.md
+
+  - Arquitectura:
+    - Resumen: arquitectura/index.md
+    - Principios: arquitectura/principios.md
+    - Patrones: arquitectura/patrones.md
+    - Plantilla ADR: arquitectura/adr-template.md
+    - ADRs:
+      - ADR-001 — Ejemplo: arquitectura/adr/ADR-001-ejemplo.md
+
+  - Desarrollo:
+    - Resumen: desarrollo/index.md
+    - Convenciones de código: desarrollo/convenciones-codigo.md
+    - Estrategia de ramas: desarrollo/branching.md
+    - Revisión de código: desarrollo/revision-codigo.md
+    - CI/CD: desarrollo/cicd.md
+
+  - Seguridad y Cumplimiento:
+    - Resumen: seguridad/index.md
+    - Controles de seguridad: seguridad/controles.md
+    - Privacidad de datos: seguridad/privacidad.md
+    - Cumplimiento normativo: seguridad/cumplimiento.md
+
+  - Operaciones y SRE:
+    - Resumen: operaciones/index.md
+    - Observabilidad: operaciones/observabilidad.md
+    - SLOs y SLAs: operaciones/slos.md
+    - Gestión de incidentes: operaciones/incidentes.md
+    - On-call: operaciones/oncall.md

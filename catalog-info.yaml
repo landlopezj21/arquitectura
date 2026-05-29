@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: estandares-arquitectura
+  title: Estándares de Arquitectura
+  description: >
+    Documentación oficial de estándares de arquitectura, desarrollo, seguridad
+    y operaciones. 
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+  tags:
+    - estandares
+    - arquitectura
+    - desarrollo
+    - seguridad
+    - operaciones
+    - ingenieria
+
+spec:
+  type: documentation
+  lifecycle: produccion
+  owner: group:team-arq
