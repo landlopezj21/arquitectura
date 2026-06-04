@@ -22,6 +22,7 @@ nav:
 
   - Desarrollo:
     - Resumen: desarrollo/index.md
+    - APIs asíncronas: desarrollo/asyncapi-rabbitmq.md
     - Convenciones de código: desarrollo/convenciones-codigo.md
     - Estrategia de ramas: desarrollo/branching.md
     - Revisión de código: desarrollo/revision-codigo.md

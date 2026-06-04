@@ -17,7 +17,3 @@ Cuando un equipo enfrenta una decisión técnica significativa, debe:
 2. Si no existe, crear un ADR usando la [plantilla](adr-template.md) y someterlo a revisión del Comité de Arquitectura.
 3. El comité tiene 5 días hábiles para aprobar, rechazar o solicitar cambios.
 4. Una vez aprobado, el ADR se agrega al registro y se convierte en estándar.
-
-## Comité de Arquitectura
-
-El Comité de Arquitectura se reúne cada dos semanas. Para agendar una revisión urgente fuera de ciclo, contacta al canal `#arquitectura` en Slack.
