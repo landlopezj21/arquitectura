@@ -20,6 +20,8 @@ spec:
   type: documentation
   lifecycle: produccion
   owner: group:team-arq
+  providesApis:
+    - ejemplo-rest-api
 
 ---
 apiVersion: backstage.io/v1alpha1
