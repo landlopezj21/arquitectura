@@ -1,0 +1,291 @@
+openapi: 3.1.0
+
+info:
+  title: Example Document API
+  version: 1.0.0
+  description: API REST para gestión de documentos
+  contact:
+    name: Equipo Toolbox
+    email: toolbox@soaint.com
+
+servers:
+  - url: https://api.toolbox.soaint.com/v1
+    description: Producción
+  - url: https://api-dev.toolbox.soaint.com/v1
+    description: Desarrollo
+
+paths:
+  /documents:
+    get:
+      operationId: listDocuments
+      summary: Listar documentos
+      tags: [Documents]
+      parameters:
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [draft, approved, rejected, archived]
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+      responses:
+        '200':
+          description: Lista de documentos
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DocumentList'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+
+    post:
+      operationId: createDocument
+      summary: Crear documento
+      tags: [Documents]
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateDocumentRequest'
+      responses:
+        '201':
+          description: Documento creado
+          headers:
+            Location:
+              schema:
+                type: string
+              description: URL del recurso creado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+        '422':
+          $ref: '#/components/responses/UnprocessableEntity'
+
+  /documents/{documentId}:
+    parameters:
+      - name: documentId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+
+    get:
+      operationId: getDocument
+      summary: Obtener documento por ID
+      tags: [Documents]
+      responses:
+        '200':
+          description: Documento encontrado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+        '404':
+          $ref: '#/components/responses/NotFound'
+
+    patch:
+      operationId: updateDocument
+      summary: Actualizar documento parcialmente
+      tags: [Documents]
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateDocumentRequest'
+      responses:
+        '200':
+          description: Documento actualizado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+
+    delete:
+      operationId: deleteDocument
+      summary: Eliminar documento
+      tags: [Documents]
+      responses:
+        '204':
+          description: Documento eliminado
+
+  /documents/{documentId}/approve:
+    parameters:
+      - name: documentId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+    post:
+      operationId: approveDocument
+      summary: Aprobar documento (transición de estado)
+      tags: [Documents, Workflow]
+      responses:
+        '200':
+          description: Documento aprobado
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Document'
+        '409':
+          description: Conflicto — el documento no está en estado aprobable
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  responses:
+    Unauthorized:
+      description: Token JWT inválido o expirado
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Recurso no encontrado
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    UnprocessableEntity:
+      description: Error de validación
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ValidationError'
+
+  schemas:
+    Document:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        title:
+          type: string
+        status:
+          type: string
+          enum: [draft, approved, rejected, archived]
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        # Nivel 3 RMM — HATEOAS
+        _links:
+          $ref: '#/components/schemas/DocumentLinks'
+
+    DocumentLinks:
+      type: object
+      description: Hipervínculos HATEOAS a acciones disponibles según estado
+      properties:
+        self:
+          $ref: '#/components/schemas/Link'
+        approve:
+          $ref: '#/components/schemas/Link'
+        reject:
+          $ref: '#/components/schemas/Link'
+        archive:
+          $ref: '#/components/schemas/Link'
+        history:
+          $ref: '#/components/schemas/Link'
+
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+          format: uri
+        method:
+          type: string
+          enum: [GET, POST, PUT, PATCH, DELETE]
+
+    DocumentList:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Document'
+        total:
+          type: integer
+        page:
+          type: integer
+        limit:
+          type: integer
+        _links:
+          type: object
+          properties:
+            self:
+              $ref: '#/components/schemas/Link'
+            next:
+              $ref: '#/components/schemas/Link'
+            prev:
+              $ref: '#/components/schemas/Link'
+
+    CreateDocumentRequest:
+      type: object
+      required: [title, type]
+      properties:
+        title:
+          type: string
+          minLength: 3
+          maxLength: 255
+        type:
+          type: string
+          enum: [invoice, contract, report]
+        content:
+          type: string
+
+    UpdateDocumentRequest:
+      type: object
+      properties:
+        title:
+          type: string
+        content:
+          type: string
+
+    Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        timestamp:
+          type: string
+          format: date-time
+
+    ValidationError:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              field:
+                type: string
+              message:
+                type: string

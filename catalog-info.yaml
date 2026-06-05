@@ -20,3 +20,17 @@ spec:
   type: documentation
   lifecycle: produccion
   owner: group:team-arq
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ejemplo-rest-api
+  description: API REST para gestión de documentos
+  tags: [rest, openapi]
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:team-arq
+  definition:
+    $text: ./openapi.yaml
