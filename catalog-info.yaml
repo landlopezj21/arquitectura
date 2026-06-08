@@ -22,6 +22,7 @@ spec:
   owner: group:team-arq
   providesApis:
     - ejemplo-rest-api
+    - ejemplo-asyncapi-api
 
 ---
 apiVersion: backstage.io/v1alpha1
