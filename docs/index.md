@@ -1,4 +1,4 @@
-# Estándares de Ingeniería
+# Estándares de Arquitectura
 
 Bienvenido al repositorio central de estándares de ingeniería. Este sitio define las guías, convenciones y principios que todos los equipos deben seguir al diseñar, construir y operar sistemas.
 
