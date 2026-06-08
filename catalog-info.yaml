@@ -30,7 +30,7 @@ metadata:
   name: ejemplo-rest-api
   description: API REST para gestión de documentos
   tags: [rest, openapi]
-  backstage.io/techdocs-ref: dir:.
+  backstage.io/techdocs-ref: dir:./arquitectura/desarrollo
 spec:
   type: openapi
   lifecycle: production
