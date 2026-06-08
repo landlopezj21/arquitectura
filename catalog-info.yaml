@@ -31,7 +31,7 @@ metadata:
   description: API REST para gestión de documentos
   tags: [rest, openapi]
   annotations:
-   backstage.io/techdocs-ref: dir:./estandares-arquitectura/desarrollo
+   backstage.io/techdocs-ref: dir:./estandares-arquitectura/docs/desarrollo
 spec:
   type: openapi
   lifecycle: production
