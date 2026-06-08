@@ -1,0 +1,174 @@
+asyncapi: 3.0.0
+
+info:
+  title: API Usuarios - Toolbox
+  version: 1.0.0
+  description: |
+    Documentación de mensajería asíncrona para el ciclo de vida de usuarios en el sistema Toolbox.
+    Utiliza RabbitMQ como broker AMQP para la comunicación entre microservicios.
+  contact:
+    name: Equipo Toolbox
+    email: toolbox@soaint.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+
+servers:
+  production:
+    host: rabbitmq.toolbox.soaint.com:5672
+    protocol: amqp
+    description: RabbitMQ producción
+    security:
+      - $ref: '#/components/securitySchemes/userPassword'
+  development:
+    host: localhost:5672
+    protocol: amqp
+    description: RabbitMQ local para desarrollo
+
+channels:
+  domainEvents:
+    address: toolbox.events.domain
+    description: Canal basado en Clave de Enrutamiento para eventos globales de dominio de usuarios.
+    bindings:
+      amqp:
+        is: routingKey
+        exchange:
+          name: toolbox.events.exchange
+        bindingVersion: "0.3.0"
+    messages:
+      UserCreatedEvent:
+        $ref: '#/components/messages/UserCreatedEvent'
+      UserUpdatedEvent:
+        $ref: '#/components/messages/UserUpdatedEvent'
+
+operations:
+  publishUserCreatedEvent:
+    action: send
+    channel:
+      $ref: '#/channels/domainEvents'
+    summary: Publica un evento cuando un usuario nuevo es creado en el sistema
+    bindings:
+      amqp:
+        deliveryMode: 2
+        ack: true
+        bindingVersion: "0.3.0"
+    messages:
+      - $ref: '#/channels/domainEvents/messages/UserCreatedEvent'
+
+  publishUserUpdatedEvent:
+    action: send
+    channel:
+      $ref: '#/channels/domainEvents'
+    summary: Publica un evento cuando el perfil de un usuario es modificado
+    bindings:
+      amqp:
+        deliveryMode: 2
+        ack: true
+        bindingVersion: "0.3.0"
+    messages:
+      - $ref: '#/channels/domainEvents/messages/UserUpdatedEvent'
+
+components:
+  securitySchemes:
+    userPassword:
+      type: plain
+      description: Autenticación nativa con usuario y contraseña en RabbitMQ
+
+  messages:
+    UserCreatedEvent:
+      name: UserCreatedEvent
+      title: Evento de Usuario Creado
+      contentType: application/json
+      bindings:
+        amqp:
+          contentEncoding: UTF-8
+          messageType: fhir.usuario.creado
+          bindingVersion: "0.3.0"
+      headers:
+        type: object
+        properties:
+          idCorrelacion:
+            type: string
+            description: Identificador único de trazabilidad para el Stack ELK
+          marcaTiempo:
+            type: string
+            format: date-time
+      payload:
+        schema:
+          $ref: '#/components/schemas/UserCreatedPayload'
+
+    UserUpdatedEvent:
+      name: UserUpdatedEvent
+      title: Evento de Usuario Modificado
+      contentType: application/json
+      headers:
+        type: object
+        properties:
+          idCorrelacion:
+            type: string
+            description: Identificador único de trazabilidad para el Stack ELK
+          marcaTiempo:
+            type: string
+            format: date-time
+      payload:
+        schema:
+          $ref: '#/components/schemas/UserUpdatedPayload'
+
+  schemas:
+    UserCreatedPayload:
+      type: object
+      required:
+        - idUsuario
+        - correoElectronico
+        - creadoEn
+      properties:
+        idUsuario:
+          type: string
+          format: uuid
+          description: Identificador único del nuevo usuario
+          example: "742b8400-e29b-41d4-a716-446655440111"
+        correoElectronico:
+          type: string
+          format: email
+          description: Dirección de correo electrónico principal
+          example: jplazcano@soaint.com
+        nombre:
+          type: string
+          description: Nombre del usuario
+          example: Juan
+        apellido:
+          type: string
+          description: Apellido del usuario
+          example: Lascano
+        roles:
+          type: array
+          items:
+            type: string
+          description: Lista de roles asignados en el SSO (Keycloak)
+          example: admin
+        creadoEn:
+          type: string
+          format: date-time
+          description: Fecha y hora exacta de la creación
+
+
+    UserUpdatedPayload:
+      type: object
+      required:
+        - idUsuario
+        - modificadoEn
+        - cambios
+      properties:
+        idUsuario:
+          type: string
+          format: uuid
+          description: Identificador del usuario
+           afectado
+          example: "742b8400-e29b-41d4-a716-446655440111" 
+        modificadoEn:
+          type: string
+          format: date-time
+          description: Fecha y hora exacta de la modificación
+        cambios:
+          type: object
+          description: Diccionario con las propiedades modificadas y sus nuevos valores

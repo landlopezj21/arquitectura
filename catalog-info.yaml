@@ -29,7 +29,7 @@ kind: API
 metadata:
   name: ejemplo-rest-api
   description: API REST para gestión de documentos
-  tags: [rest, openapi]
+  tags: [rest, asyncapi, rabbitmq, asincrono]
   annotations:
    backstage.io/techdocs-entity: component:default/estandares-arquitectura
 spec:
@@ -38,3 +38,20 @@ spec:
   owner: group:team-arq
   definition:
     $text: ./openapi.yaml
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ejemplo-asyncapi-api
+  description: Contrato de eventos asíncronos
+  tags: [amqp, openapi]
+  annotations:
+   backstage.io/techdocs-entity: component:default/estandares-arquitectura
+spec:
+  type: asyncapi
+  lifecycle: production
+  owner: group:team-arq
+  definition:
+    $text: ./asyncapi.yaml
+
