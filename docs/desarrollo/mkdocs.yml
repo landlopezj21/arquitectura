@@ -1,0 +1,16 @@
+site_name: Estándares de APIs: OpenAPI y Modelo de Madurez Richardson
+
+docs_dir: docs
+
+theme:
+  name: material
+
+plugins:
+  - techdocs-core
+
+nav:
+
+  - Desarrollo:
+    - APIs Síncronas: desarrollo/estandares-apis.md
+    - APIs asíncronas: desarrollo/asyncapi-rabbitmq.md
+
