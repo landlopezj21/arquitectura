@@ -14,7 +14,7 @@ metadata:
     - desarrollo
     - seguridad
     - operaciones
-    - ingenieria
+
 
 spec:
   type: documentation
