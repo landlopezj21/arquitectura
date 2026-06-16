@@ -4,8 +4,7 @@ metadata:
   name: estandares-arquitectura
   title: Estándares de Arquitectura
   description: >
-    Documentación oficial de estándares de arquitectura, desarrollo, seguridad
-    y operaciones. 
+    Documentación de estándares de arquitectura
   annotations:
     backstage.io/techdocs-ref: dir:.
   tags:
