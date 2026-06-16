@@ -1,4 +1,4 @@
-# Diagramas C4
+# Modelo C4
 
 **Estado:** WIP
 
