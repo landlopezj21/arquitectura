@@ -16,7 +16,7 @@ nav:
     - Resumen: arquitectura/index.md
     - Principios: arquitectura/principios.md
     - Patrones: arquitectura/patrones.md
-    - Diagramas C4: arquitectura/modelo-c4.md
+    - Modelo C4: arquitectura/modelo-c4.md
     - Plantilla ADR: arquitectura/adr-template.md
     - ADRs:
       - ADR-001 — Ejemplo: arquitectura/adr/ADR-001-ejemplo.md
