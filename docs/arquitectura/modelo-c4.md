@@ -33,7 +33,7 @@ El modelo C4 resuelve problemas comunes en la documentación de arquitectura:
 - C4 define una jerarquía clara: **Context → Container → Component → Code**.
 - Facilita conversaciones entre arquitectos, desarrolladores, product managers y stakeholders.
 
-### Principios Rectores
+### Principios
 
 1. **Claridad sobre completitud**: un diagrama que se entiende en 30 segundos vale más que uno exhaustivo que nadie lee.
 2. **Audiencia primero**: cada nivel tiene una audiencia definida; nunca mezcles abstracciones.
