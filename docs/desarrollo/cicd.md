@@ -2,6 +2,7 @@
 
 Todo repositorio debe tener un pipeline automatizado de integración y despliegue continuo. Sin despliegues manuales a producción.
 
+[WIP]
 ---
 
 ## Ambientes
