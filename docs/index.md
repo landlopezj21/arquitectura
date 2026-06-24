@@ -1,6 +1,6 @@
 # Estándares de Arquitectura
 
-Bienvenido al repositorio central de estándares de ingeniería. Este sitio define las guías, convenciones y principios que todos los equipos deben seguir al diseñar, construir y operar sistemas.
+Bienvenido al repositorio central de estándares de Arquitectura. Este sitio define las guías, convenciones y principios que todos los equipos deben seguir al diseñar, construir y operar sistemas.
 
 ---
 
@@ -15,7 +15,7 @@ Bienvenido al repositorio central de estándares de ingeniería. Este sitio defi
 
 ---
 
-## Principio rector
+## Principio
 
 > "Los estándares no existen para limitar la creatividad, sino para liberar a los equipos de tener que resolver los mismos problemas una y otra vez."
 
@@ -23,7 +23,7 @@ Estos estándares son documentos vivos. Cualquier equipo puede proponer cambios 
 
 ## Cómo contribuir
 
-1. Abre un issue describiendo el cambio o adición propuesta.
+1. Abre un issue describiendo el cambio o propuesta.
 2. Crea una rama `docs/descripcion-del-cambio`.
 3. Envía un Pull Request con los cambios.
 4. El equipo de Arquitectura revisa y aprueba en un plazo máximo de 5 días hábiles.
