@@ -3,7 +3,7 @@
 Esta sección define las convenciones y prácticas que todos los equipos de desarrollo deben seguir para mantener calidad, consistencia y velocidad sostenible.
 
 ## Contenido
-APIs Síncronas
+
 - [OpenAPI](estandares-apis.md) — Estándares de APIs: OpenAPI y Modelo de Madurez Richardson
 - [AsyncAPI](asyncapi-rabbitmq.md) — AsyncAPI es un estándar abierto para definir interfaces de APIs asíncronas (event-driven)
 - [Convenciones de código](convenciones-codigo.md) — nomenclatura, formato, estructura de proyectos.
@@ -11,6 +11,3 @@ APIs Síncronas
 - [Revisión de código](revision-codigo.md) — proceso y criterios de code review.
 - [CI/CD](cicd.md) — pipelines, ambientes y proceso de despliegue.
 
-## Principio base
-
-Todo código que llega a la rama principal debe poder desplegarse a producción en cualquier momento. Este principio de _trunk-based development_ es la base de todas las convenciones de esta sección.
