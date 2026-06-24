@@ -11,7 +11,7 @@ Bienvenido al repositorio central de estándares de Arquitectura. Este sitio def
 | [Arquitectura](arquitectura/index.md) | Principios, patrones aprobados y registro de decisiones arquitectónicas (ADRs) |
 | [Desarrollo](desarrollo/index.md) | Convenciones de código, estrategia de ramas, revisión de código y pipelines CI/CD |
 | [Seguridad y Cumplimiento](seguridad/index.md) | Controles de seguridad obligatorios, privacidad de datos y normativas aplicables |
-| [Operaciones y SRE](operaciones/index.md) | Observabilidad, SLOs, gestión de incidentes y protocolo on-call |
+| [Operaciones y SRE](operaciones/index.md) | Observabilidad, SLOs, gestión de incidentes |
 
 ---
 

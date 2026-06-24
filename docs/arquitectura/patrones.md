@@ -30,12 +30,6 @@ Protección contra fallos en cascada mediante aislamiento de servicios
 defectuosos.
 
 
-
-
-
-
-
-
 # Patrones de Arquitectura
 
 Catálogo de patrones aprobados, patrones condicionales y patrones a evitar. Cada equipo debe justificar el uso de un patrón condicional mediante un ADR.
@@ -84,7 +78,7 @@ Protege al sistema ante fallos en cascada. Corta el circuito cuando un servicio 
 Toda infraestructura se define como código versionado. Sin aprovisionamiento manual.
 
 **Cuándo usarlo:** siempre. Sin excepciones para entornos de producción o staging.
-**Implementación de referencia:** Terraform, Pulumi.
+**Implementación de referencia:** Terraform.
 
 ---
 

@@ -83,7 +83,7 @@ Los procesos repetibles deben automatizarse. Los pasos manuales son fuentes de e
 
 ---
 
-## P07 — Datos como activo compartido
+## P07 — Datos
 
 Los datos pertenecen a la organización, no a los sistemas que los generan. Los sistemas deben exponer sus datos de manera controlada y documentada para facilitar su reutilización.
 
@@ -91,7 +91,7 @@ Los datos pertenecen a la organización, no a los sistemas que los generan. Los 
 
 ---
 
-## P08 — Falla con gracia
+## P08 — Fallos 
 
 Los sistemas deben diseñarse asumiendo que los componentes dependientes fallarán. Implementar patrones de resiliencia (circuit breaker, retry con backoff, timeouts) es obligatorio en integraciones externas.
 
@@ -101,4 +101,4 @@ Los sistemas deben diseñarse asumiendo que los componentes dependientes fallar�
 
 ## Actualización de principios
 
-Los principios se revisan anualmente por el Comité de Arquitectura. Propuestas de cambio deben presentarse con al menos 30 días de anticipación a la revisión anual.
+Los principios se revisan anualmente por el area de arquitectura. Propuestas de cambio deben presentarse con al menos 30 días de anticipación a la revisión anual.
