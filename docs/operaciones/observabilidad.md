@@ -2,6 +2,7 @@
 
 Todo sistema en producción debe implementar los tres pilares de observabilidad antes de su primer despliegue. Un sistema que no se puede observar no se puede operar.
 
+[WIP]
 ---
 
 ## Los tres pilares
@@ -106,9 +107,9 @@ const sdk = new NodeSDK({
 
 | Pilar | Herramienta | Uso |
 |---|---|---|
-| Logs | Datadog / Elastic | Centralización, búsqueda y alertas |
+| Logs | ELK  | Centralización, búsqueda y alertas |
 | Métricas | Prometheus + Grafana | Visualización y alertas |
-| Trazas | Jaeger / Datadog APM | Análisis de latencia y errores distribuidos |
+| Trazas | ELK | Análisis de latencia y errores distribuidos |
 
 ---
 
@@ -121,16 +122,4 @@ GET /health/live    → 200 si el proceso está vivo (para liveness probe)
 GET /health/ready   → 200 si el servicio puede recibir tráfico (para readiness probe)
 ```
 
-El endpoint `/health/ready` debe verificar conexiones a dependencias críticas (BD, broker de mensajes).
 
-```json
-// Ejemplo respuesta /health/ready
-{
-  "status": "ok",
-  "checks": {
-    "database": "ok",
-    "kafka": "ok",
-    "redis": "degraded"
-  }
-}
-```

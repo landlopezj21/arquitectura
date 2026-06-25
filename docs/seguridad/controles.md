@@ -74,16 +74,18 @@ Los siguientes eventos deben quedar registrados en el sistema de logs centraliza
 - Cambios en configuración del sistema
 - Despliegues a producción
 
-Los logs de seguridad deben retenerse mínimo **12 meses** y no pueden ser modificados ni eliminados por los propios sistemas.
+Los logs de seguridad deben retenerse mínimo **12 meses** (en revisión) y no pueden ser modificados ni eliminados por los propios sistemas.
 
 ---
 
 ## Escaneo y pruebas de seguridad
 
+[WIP]
+
 | Actividad | Frecuencia | Responsable |
 |---|---|---|
-| Escaneo de dependencias (SCA) | En cada PR y diario | CI/CD automático |
+| Escaneo de dependencias (SCA) | CI/CD automático |
 | Escaneo de imagen Docker (Trivy) | En cada build | CI/CD automático |
-| Análisis estático de seguridad (SAST) | En cada PR | CI/CD automático |
+| Análisis estático de seguridad (SAST) | CI/CD automático |
 | Prueba de penetración | Anual o ante cambios mayores | Equipo de seguridad o proveedor externo |
 | Revisión de seguridad de diseño | Antes de lanzar sistemas críticos | Arquitectura + Seguridad |

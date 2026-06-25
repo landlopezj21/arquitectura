@@ -2,6 +2,7 @@
 
 Estándares para el tratamiento responsable de datos personales en todos los sistemas de la organización.
 
+ [WIP]
 ---
 
 ## Principios de privacidad
@@ -29,42 +30,10 @@ Estándares para el tratamiento responsable de datos personales en todos los sis
 
 ---
 
-## Evaluación de Impacto en Privacidad (DPIA)
-
-Una DPIA es obligatoria antes de lanzar cualquier sistema que:
-
-- Procese datos sensibles a escala
-- Implique monitoreo sistemático de personas
-- Use decisiones automatizadas con efecto legal
-- Involucre nuevas tecnologías de procesamiento de datos
-
-### Proceso de DPIA simplificado
-
-1. **Descripción del tratamiento:** qué datos, para qué propósito, quién accede.
-2. **Evaluación de necesidad:** ¿es el mínimo necesario?
-3. **Identificación de riesgos:** qué puede salir mal y con qué impacto para el titular.
-4. **Medidas de mitigación:** controles técnicos y organizativos para reducir el riesgo.
-5. **Aprobación:** el responsable de privacidad debe firmar antes del lanzamiento.
-
----
-
-## Derechos de los titulares
-
-Los sistemas que almacenen datos personales deben soportar:
-
-| Derecho | Descripción | Plazo de respuesta |
-|---|---|---|
-| Acceso | El usuario puede ver todos sus datos | 30 días |
-| Rectificación | El usuario puede corregir datos incorrectos | 5 días hábiles |
-| Eliminación | El usuario puede solicitar borrar sus datos | 30 días |
-| Portabilidad | El usuario puede exportar sus datos en formato legible | 30 días |
-| Oposición | El usuario puede oponerse a ciertos tratamientos | Inmediato |
-
-Los endpoints o interfaces para ejercer estos derechos deben estar documentados en el `README.md` del servicio.
-
----
 
 ## Retención y eliminación de datos
+
+[WIP]
 
 Cada tipo de dato debe tener una política de retención documentada:
 
@@ -81,6 +50,8 @@ La política de retención de cada servicio debe estar en su documentación téc
 ---
 
 ## Notificación de brechas de seguridad
+
+[WIP]
 
 Si se detecta una brecha que afecta datos personales:
 

@@ -1,5 +1,7 @@
 # Seguridad y Cumplimiento
 
+[WIP]
+
 Esta sección define los controles de seguridad obligatorios, las prácticas de privacidad de datos y las normativas que aplican a los sistemas de la organización.
 
 ## Contenido
@@ -22,4 +24,4 @@ Los controles obligatorios varían según el nivel. Consulta la página de [cont
 
 ## Reporte de vulnerabilidades
 
-Si descubres una vulnerabilidad de seguridad, reporta al canal privado `#seguridad` en Slack o escribe a `seguridad@tu-org.com`. No crear issues públicos en GitHub para vulnerabilidades activas.
+Si descubres una vulnerabilidad de seguridad, reporta al canal privado de SOAINT.
