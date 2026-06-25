@@ -1,3 +1,10 @@
+# =============================================================================
+# Estándares de Arquitectura/catalog-info.yaml
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# 1. DOMAIN - Dominio de negocio: Gobierno de Arquitectura Corporativa y TI
+# -----------------------------------------------------------------------------
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
@@ -17,25 +24,25 @@ metadata:
 
 spec:
   type: documentation
-  lifecycle: produccion
-  owner: group:team-arq
+  lifecycle: production
+  owner: platform-team
   providesApis:
-    - ejemplo-rest-api
-    - ejemplo-asyncapi-api
+    - ejemplo-openapi
+    - ejemplo-asyncapi
 
 ---
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: ejemplo-rest-api
+  name: ejemplo-openapi
   description: API REST para gestión de documentos
-  tags: [rest, asyncapi, rabbitmq, asincrono]
+  tags: [rest, openapi]
   annotations:
    backstage.io/techdocs-entity: component:default/estandares-arquitectura
 spec:
   type: openapi
   lifecycle: production
-  owner: group:team-arq
+  owner: platform-team
   definition:
     $text: ./openapi.yaml
 
@@ -43,7 +50,7 @@ spec:
 apiVersion: backstage.io/v1alpha1
 kind: API
 metadata:
-  name: ejemplo-asyncapi-api
+  name: ejemplo-asyncapi
   description: Contrato de eventos asíncronos
   tags: [amqp, openapi]
   annotations:
@@ -51,7 +58,7 @@ metadata:
 spec:
   type: asyncapi
   lifecycle: production
-  owner: group:team-arq
+  owner: platform-team
   definition:
     $text: ./asyncapi.yaml
 

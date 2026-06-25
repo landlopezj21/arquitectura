@@ -40,4 +40,4 @@ nav:
     - Observabilidad: operaciones/observabilidad.md
     - SLOs y SLAs: operaciones/slos.md
     - Gestión de incidentes: operaciones/incidentes.md
-    - On-call: operaciones/oncall.md
+
