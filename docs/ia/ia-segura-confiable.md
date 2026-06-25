@@ -1,8 +1,4 @@
-# IA Segura, Confiable y Auditada — Sin Shadow AI
-
-**Versión:** 1.0  
-**Fecha:** Junio 2026  
-**Audiencia:** Dirección ejecutiva, arquitectura, seguridad, cumplimiento y equipos de tecnología
+# IA Segura, Confiable — Sin Shadow AI
 
 ---
 
